@@ -1,17 +1,4 @@
 /*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
-
-
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
 
@@ -875,7 +862,19 @@ main {
   #PORTFOLIO
 \*-----------------------------------*/
 
-.filter-list { display: none; }
+
+/*-----------------------------------*\
+  #PORTFOLIO
+\*-----------------------------------*/
+
+/* Styling untuk filter */
+.filter-list {
+  display: flex; /* Tampilkan sebagai daftar horizontal */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
 
 .filter-select-box {
   position: relative;
@@ -896,7 +895,9 @@ main {
   font-weight: var(--fw-300);
 }
 
-.filter-select.active .select-icon { transform: rotate(0.5turn); }
+.filter-select.active .select-icon {
+  transform: rotate(0.5turn);
+}
 
 .select-list {
   background: var(--eerie-black-2);
@@ -928,18 +929,36 @@ main {
   width: 100%;
   padding: 8px 10px;
   border-radius: 8px;
+  transition: background 0.3s ease;
 }
 
-.select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
+.select-item button:hover {
+  background: hsl(240, 2%, 20%);
+}
 
+/* Styling untuk grid project */
 .project-list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* Default 1 kolom */
   gap: 30px;
   margin-bottom: 10px;
 }
 
-.project-item { display: none; }
+@media (min-width: 768px) {
+  .project-list {
+    grid-template-columns: 1fr 1fr; /* 2 kolom untuk layar menengah */
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom untuk layar besar */
+  }
+}
+
+.project-item {
+  display: none;
+}
 
 .project-item.active {
   display: block;
@@ -947,19 +966,35 @@ main {
 }
 
 @keyframes scaleUp {
-  0% { transform: scale(0.5); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
-.project-item > a { width: 100%; }
-
+/* Styling untuk gambar project */
 .project-img {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 200px; /* Tinggi default */
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .project-img {
+    height: 220px; /* Tinggi lebih besar untuk layar menengah */
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-img {
+    height: 250px; /* Tinggi lebih besar untuk layar besar */
+  }
 }
 
 .project-img::before {
@@ -971,10 +1006,12 @@ main {
   height: 100%;
   background: transparent;
   z-index: 1;
-  transition: var(--transition-1);
+  transition: background 0.3s ease;
 }
 
-.project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
+.project-item > a:hover .project-img::before {
+  background: hsla(0, 0%, 0%, 0.5);
+}
 
 .project-item-icon-box {
   --scale: 0.8;
@@ -990,7 +1027,7 @@ main {
   border-radius: 12px;
   opacity: 0;
   z-index: 1;
-  transition: var(--transition-1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .project-item > a:hover .project-item-icon-box {
@@ -998,19 +1035,26 @@ main {
   opacity: 1;
 }
 
-.project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
+.project-item-icon-box ion-icon {
+  --ionicon-stroke-width: 50px;
+}
 
 .project-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: var(--transition-1);
+  object-fit: cover; /* Jaga proporsi gambar */
+  transition: transform 0.3s ease;
 }
 
-.project-item > a:hover img { transform: scale(1.1); }
+.project-item > a:hover img {
+  transform: scale(1.1); /* Efek zoom pada hover */
+}
 
+/* Styling untuk judul dan kategori */
 .project-title,
-.project-category { margin-left: 10px; }
+.project-category {
+  margin-left: 10px;
+}
 
 .project-title {
   color: var(--white-2);
@@ -1025,8 +1069,6 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
 }
-
-
 
 
 
