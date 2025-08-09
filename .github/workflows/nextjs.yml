@@ -1,9 +1,9 @@
 # .github/workflows/deploy.yml
-name: Deploy Next.js site to GitHub Pages
+name: Deploy Next.js site to Pages
 
 on:
   push:
-    branches: ["Bulin"]   # ganti ke "main" kalau branch default kamu main
+    branches: ["Bulin"]   # ganti ke "main" jika perlu
   workflow_dispatch:
 
 permissions:
@@ -28,16 +28,12 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
-
       - name: Install dependencies
         run: npm ci
 
-      - name: Build (static export via next.config)
-        run: npx next build   # hasil export ada di ./out
+      # Dengan output: 'export' di next.config, next build akan menghasilkan ./out
+      - name: Build (static export)
+        run: npx next build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
