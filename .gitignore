@@ -45,7 +45,6 @@ jspm_packages
 
 # Env
 .env.local
-.env
 
 out
 out/*
