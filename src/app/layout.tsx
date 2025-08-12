@@ -20,7 +20,7 @@ const TITLE = `${DATA.name}`;
 const SITE_NAME = `${DATA.name}'s Portfolio`;
 const DESCRIPTION =
   `Portofolio ${DATA.name} (Bulin) — Backend & Fullstack Developer di Bandar Lampung. Berpengalaman membangun aplikasi modern dengan Next.js, TypeScript, PostgreSQL, dan Docker.`;
-const OG_IMAGE = `${DATA.url}/me.png`; // pastikan min. 1200x630
+const OG_IMAGE = `${DATA.url}/og.png`; // pastikan min. 1200x630
 
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
         alt: `${DATA.name} — Portfolio Preview`,
       },
     ],
-    locale: "en_US", // ganti ke "id_ID" kalau konten full Bahasa Indonesia
+    locale: "id_ID", // ganti ke "id_ID" kalau konten full Bahasa Indonesia
   },
 
   twitter: {

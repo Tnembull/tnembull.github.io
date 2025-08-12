@@ -8,7 +8,7 @@ export const DATA = {
   name: "Muhammad Nur Ashiddiqi",
   nickname: "Bulin",
   initials: "MNA",
-  url: "https://www.bulin.dev",
+  url: "https://tnembull.github.io/",
   location: "Bandar Lampung, Indonesia",
   locationLink: "https://maps.app.goo.gl/Zbzok1mCik445h1C6",
   description:
