@@ -130,6 +130,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta name="google-site-verification" content="u7rTjfDkd2ZmGu2ltE7v_PXoWUQhvAlliC9G0-nKXdI" />
         <meta name="color-scheme" content="dark light" />
         {/* JSON-LD: Person */}
         <script

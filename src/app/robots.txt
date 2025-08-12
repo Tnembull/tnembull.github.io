@@ -1,4 +1,5 @@
-User-Agent: *
+User-agent: *
 Allow: /
 Disallow: /private/
 
+Sitemap: https://tnembull.github.io/sitemap.xml
