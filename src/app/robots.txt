@@ -3,3 +3,4 @@ Allow: /
 Disallow: /private/
 
 Sitemap: https://tnembull.github.io/sitemap.xml
+google: https://tnembull.github.io/google1ce9960635705daa.html
