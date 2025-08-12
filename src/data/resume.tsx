@@ -1,8 +1,8 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon, Play } from "lucide-react";
 import { DiPostgresql } from "react-icons/di";
-import { FaDocker, FaNodeJs, FaPython } from "react-icons/fa";
-import { SiAppwrite, SiGo, SiKubernetes, SiRedis } from "react-icons/si";
+import { FaAws, FaDocker, FaLaravel, FaNodeJs, FaPhp, FaPython } from "react-icons/fa";
+import { SiAnaconda, SiCodeigniter, SiGo, SiJupyter, SiKubernetes, SiMysql, SiParrotsecurity, SiRedis } from "react-icons/si";
 
 export const DATA = {
   name: "Muhammad Nur Ashiddiqi",
@@ -35,6 +35,34 @@ export const DATA = {
       icon: <FaPython className="size-3" />,
     },
     {
+      name: "Anaconda",
+      icon: <SiAnaconda className="size-3" />,
+    },
+    {
+      name: "Jupyter",
+      icon: <SiJupyter className="size-3" />,
+    },
+    {
+      name: "PHP",
+      icon: <FaPhp className="size-3" />,
+    },
+    {
+      name: "MySQL",
+      icon: <SiMysql className="size-3" />,
+    },
+    {
+      name: "AWS",
+      icon: <FaAws className="size-3" />,
+    },
+    {
+      name: "Laravel",
+      icon: <FaLaravel className="size-3" />,
+    },
+    {
+      name: "Codeigniter",
+      icon: <SiCodeigniter className="size-3" />,
+    },
+    {
       name: "Postgres",
       icon: <DiPostgresql className="size-3" />,
     },
@@ -49,6 +77,10 @@ export const DATA = {
     {
       name: "Golang",
       icon: <SiGo className="size-3" />,
+    },
+    {
+      name: "Parrot",
+      icon: <SiParrotsecurity className="size-3" />,
     },
     {
       name: "Redis",
@@ -97,7 +129,7 @@ work: [
       location: "WFO, Bandar Lampung, Indonesia",
       title: "Backend Developer",
       logoUrl: "/work-experience/newus.png",
-      start: "December 2024",
+      start: "Desember 2024",
       end: "Sekarang",
       description: [
         "- Mengembangkan dan merapikan API berbasis Node.js/Express & Prisma untuk aplikasi E-Gov dan internal product.",
@@ -141,7 +173,7 @@ work: [
       title: "Backend Developer",
       logoUrl: "/work-experience/kkn.png",
       start: "October 2023",
-      end: "December 2023",
+      end: "Desember 2023",
       description: [
         "- Pengembangan fitur backend untuk kebutuhan operasional KKN dan automasi pelaporan.",
         "- Menyusun dokumentasi API dan pipeline sederhana untuk deployment.",
