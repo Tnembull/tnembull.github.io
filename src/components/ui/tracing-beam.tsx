@@ -1,122 +1,156 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
 
-export const TracingBeam = ({
-  children,
-  className,
-}: {
+import { cn } from "@/lib/utils";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import React, { useEffect, useId, useRef, useState } from "react";
+
+type Props = {
   children: React.ReactNode;
   className?: string;
-}) => {
+};
+
+export const TracingBeam: React.FC<Props> = ({ children, className }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Scroll progress relatif ke kontainer outer
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  const contentRef = useRef<HTMLDivElement>(null);
+  // Hitung tinggi konten untuk tinggi SVG
   const [svgHeight, setSvgHeight] = useState(0);
-
   useEffect(() => {
-    if (contentRef.current) {
-      setSvgHeight(contentRef.current.offsetHeight);
-    }
+    if (!contentRef.current) return;
+    const update = () => setSvgHeight(contentRef.current!.offsetHeight);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(contentRef.current);
+    return () => ro.disconnect();
   }, []);
 
-  const y1 = useSpring(
-    useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]),
-    {
-      stiffness: 500,
-      damping: 90,
-    },
-  );
-  const y2 = useSpring(
-    useTransform(scrollYProgress, [0, 1], [50, svgHeight - 200]),
-    {
-      stiffness: 500,
-      damping: 90,
-    },
-  );
+  // Batas minimal biar tidak negatif
+  const h = Math.max(svgHeight, 1);
+
+  // Gradien bergerak mengikuti scroll
+  const y1 = useSpring(useTransform(scrollYProgress, [0, 0.8], [50, h]), {
+    stiffness: 500,
+    damping: 90,
+  });
+  const y2 = useSpring(useTransform(scrollYProgress, [0, 1], [50, Math.max(50, h - 200)]), {
+    stiffness: 500,
+    damping: 90,
+  });
+
+  // ID unik agar tidak bentrok jika komponen dipakai >1 kali
+  const uid = useId();
+  const gradientLeftId = `gradient-left-${uid}`;
+  const gradientRightId = `gradient-right-${uid}`;
+
+  const BULLET_SIZE = 16; // px -> h-4 w-4
+  const BULLET_INSET = 27; // jarak dari tepi kontainer side
+
+  const BeamSide = ({ side }: { side: "left" | "right" }) => {
+    const isLeft = side === "left";
+    const gradientId = isLeft ? gradientLeftId : gradientRightId;
+
+    return (
+      <div
+        className={cn(
+          "absolute top-3 hidden md:block",
+          isLeft ? "-left-4 md:-left-20" : "-right-4 md:-right-20"
+        )}
+      >
+        <div className="relative">
+          {/* Bullet: absolute & center tepat di y=0 path */}
+          <motion.div
+            transition={{ duration: 0.2, delay: 0.5 }}
+            animate={{
+              boxShadow:
+                scrollYProgress.get() > 0
+                  ? "none"
+                  : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
+            }}
+            className="h-4 w-4 rounded-full border border-neutral-200 shadow-sm flex items-center justify-center absolute"
+            style={{
+              top: -BULLET_SIZE / 2, // center ke y=0
+              ...(isLeft ? { left: BULLET_INSET } : { right: BULLET_INSET }),
+            }}
+          >
+            <motion.div
+              transition={{ duration: 0.2, delay: 0.5 }}
+              animate={{
+                backgroundColor:
+                  scrollYProgress.get() > 0 ? "white" : "var(--emerald-500)",
+                borderColor:
+                  scrollYProgress.get() > 0 ? "white" : "var(--emerald-600)",
+              }}
+              className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
+            />
+          </motion.div>
+
+          {/* Garis */}
+          <svg
+            viewBox={`0 0 20 ${h}`}
+            width="20"
+            height={h}
+            className={cn(isLeft ? "ml-4" : "mr-4", "block")}
+            aria-hidden="true"
+          >
+            {/* Mirror horizontal untuk sisi kanan */}
+            <g transform={isLeft ? undefined : "translate(20,0) scale(-1,1)"}>
+              <motion.path
+                d={`M 1 0V -36 l 18 24 V ${h * 0.8} l -18 24V ${h}`}
+                fill="none"
+                stroke="#9091A0"
+                strokeOpacity="0.16"
+              />
+              <motion.path
+                d={`M 1 0V -36 l 18 24 V ${h * 0.8} l -18 24V ${h}`}
+                fill="none"
+                stroke={`url(#${gradientId})`}
+                strokeWidth="1.25"
+                className="motion-reduce:hidden"
+              />
+            </g>
+
+            <defs>
+              <motion.linearGradient
+                id={gradientId}
+                gradientUnits="userSpaceOnUse"
+                x1="0"
+                x2="0"
+                y1={y1 as unknown as number}
+                y2={y2 as unknown as number}
+              >
+                <stop stopColor="#18CCFC" stopOpacity="0" />
+                <stop stopColor="#18CCFC" />
+                <stop offset="0.325" stopColor="#6344F5" />
+                <stop offset="1" stopColor="#AE48FF" stopOpacity="0" />
+              </motion.linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <motion.div
       ref={ref}
       className={cn("relative w-full max-w-4xl mx-auto h-full", className)}
     >
-      <div className="absolute -left-4 md:-left-20 top-3 hidden md:block">
-        <motion.div
-          transition={{
-            duration: 0.2,
-            delay: 0.5,
-          }}
-          animate={{
-            boxShadow:
-              scrollYProgress.get() > 0
-                ? "none"
-                : "rgba(0, 0, 0, 0.24) 0px 3px 8px",
-          }}
-          className="ml-[27px] h-4 w-4 rounded-full border border-netural-200 shadow-sm flex items-center justify-center"
-        >
-          <motion.div
-            transition={{
-              duration: 0.2,
-              delay: 0.5,
-            }}
-            animate={{
-              backgroundColor:
-                scrollYProgress.get() > 0 ? "white" : "var(--emerald-500)",
-              borderColor:
-                scrollYProgress.get() > 0 ? "white" : "var(--emerald-600)",
-            }}
-            className="h-2 w-2  rounded-full border border-neutral-300 bg-white"
-          />
-        </motion.div>
-        <svg
-          viewBox={`0 0 20 ${svgHeight}`}
-          width="20"
-          height={svgHeight} // Set the SVG height
-          className=" ml-4 block"
-          aria-hidden="true"
-        >
-          <motion.path
-            d={`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`}
-            fill="none"
-            stroke="#9091A0"
-            strokeOpacity="0.16"
-            transition={{
-              duration: 10,
-            }}
-          ></motion.path>
-          <motion.path
-            d={`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`}
-            fill="none"
-            stroke="url(#gradient)"
-            strokeWidth="1.25"
-            className="motion-reduce:hidden"
-            transition={{
-              duration: 10,
-            }}
-          ></motion.path>
-          <defs>
-            <motion.linearGradient
-              id="gradient"
-              gradientUnits="userSpaceOnUse"
-              x1="0"
-              x2="0"
-              y1={y1} // set y1 for gradient
-              y2={y2} // set y2 for gradient
-            >
-              <stop stopColor="#18CCFC" stopOpacity="0"></stop>
-              <stop stopColor="#18CCFC"></stop>
-              <stop offset="0.325" stopColor="#6344F5"></stop>
-              <stop offset="1" stopColor="#AE48FF" stopOpacity="0"></stop>
-            </motion.linearGradient>
-          </defs>
-        </svg>
-      </div>
+      <BeamSide side="left" />
+      <BeamSide side="right" />
       <div ref={contentRef}>{children}</div>
     </motion.div>
   );
 };
+
+export default TracingBeam;

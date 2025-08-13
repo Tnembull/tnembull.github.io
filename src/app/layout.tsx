@@ -1,4 +1,3 @@
-// app/layout.tsx
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
@@ -15,12 +14,11 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 
-// ---- SEO METADATA (final) ----
 const TITLE = `${DATA.name}`;
-const SITE_NAME = `${DATA.name}'s Portfolio`;
+const SITE_NAME = `${DATA.name} Portfolio`;
 const DESCRIPTION =
-  `Portofolio ${DATA.name} (Bulin) — Backend & Fullstack Developer di Bandar Lampung. Berpengalaman membangun aplikasi modern dengan Next.js, TypeScript, PostgreSQL, dan Docker.`;
-const OG_IMAGE = `${DATA.url}/og.png`; // pastikan min. 1200x630
+  `Portofolio ${DATA.name} (Bulin) - Backend & Fullstack Developer di Bandar Lampung. Next.js, TypeScript, PostgreSQL untuk pengembangan aplikasi modern.`;
+const OG_IMAGE = `${DATA.url}/og.png`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
@@ -60,7 +58,7 @@ export const metadata: Metadata = {
         alt: `${DATA.name} — Portfolio Preview`,
       },
     ],
-    locale: "id_ID", // ganti ke "id_ID" kalau konten full Bahasa Indonesia
+    locale: "id_ID", 
   },
 
   twitter: {
@@ -68,7 +66,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     images: [OG_IMAGE],
-    creator: "@bulin_dev", // ganti ke handle X kamu jika berbeda
+    creator: "@tnembull",
   },
 
   icons: { icon: "/me.png", apple: "/me.png" },
@@ -132,12 +130,10 @@ export default function RootLayout({
       <head>
         <meta name="google-site-verification" content="u7rTjfDkd2ZmGu2ltE7v_PXoWUQhvAlliC9G0-nKXdI" />
         <meta name="color-scheme" content="dark light" />
-        {/* JSON-LD: Person */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        {/* JSON-LD: WebSite */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
