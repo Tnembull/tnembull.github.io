@@ -21,7 +21,7 @@ export default function Page() {
   return (
     <TracingBeam className="px-6">
       <main className="flex items-center justify-center flex-col min-h-[100dvh] space-y-10">
-        <section id="hero">
+        {/* <section id="hero">
           <div className="mx-auto w-full max-w-2xl space-y-8">
             <div className="gap-2 flex justify-between">
               <div className="flex-col flex flex-1 space-y-1.5">
@@ -47,8 +47,42 @@ export default function Page() {
               </BlurFade>
             </div>
           </div>
+        </section> */}
+        <section id="hero" className="w-full">
+          <div className="mx-auto w-full max-w-2xl px-4 sm:px-0">
+            <div className="flex flex-col-reverse sm:flex-row sm:items-center gap-6 sm:gap-8">
+              {/* TEKS */}
+              <div className="flex-1 flex flex-col space-y-3 items-center sm:items-start text-center sm:text-left">
+                <h1>
+                  <BlurFadeText
+                    delay={BLUR_FADE_DELAY}
+                    className="text-center sm:text-left text-3xl sm:text-5xl xl:text-6xl/none font-extrabold tracking-tight text-balance"
+                    yOffset={8}
+                    text={`Hai, saya ${DATA.nickname}.`}
+                  />
+                </h1>
+
+                <BlurFadeText
+                  className="text-justify sm:text-left text-base sm:text-lg leading-relaxed text-muted-foreground text-pretty"
+                  delay={BLUR_FADE_DELAY}
+                  text={DATA.description}
+                />
+              </div>
+
+              {/* AVATAR */}
+              <BlurFade delay={BLUR_FADE_DELAY}>
+                <div className="w-full sm:w-auto flex justify-center sm:justify-end">
+                  <Avatar className="mx-auto sm:mx-0 size-20 sm:size-28 border ring-1 ring-border shadow-sm">
+                    <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                    <AvatarFallback>{DATA.initials}</AvatarFallback>
+                  </Avatar>
+                </div>
+              </BlurFade>
+            </div>
+          </div>
         </section>
-        <section id="about">
+
+        {/* <section id="about">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
             <h2 className="text-xl font-bold">Tentang Saya</h2>
           </BlurFade>
@@ -69,7 +103,46 @@ export default function Page() {
               </Link>
             </div>
           </BlurFade>
-        </section>
+        </section> */}
+        {/* ABOUT / TENTANG */}
+<section id="about" className="w-full">
+  <div className="mx-auto w-full max-w-2xl px-4 sm:px-0">
+    <BlurFade delay={BLUR_FADE_DELAY * 3}>
+      <h2 className="text-lg sm:text-xl font-bold text-center sm:text-left">
+        Tentang Saya
+      </h2>
+    </BlurFade>
+
+    <BlurFade delay={BLUR_FADE_DELAY * 4}>
+      <Markdown
+  className="
+    prose prose-sm md:prose-base
+    max-w-none leading-relaxed text-pretty
+    font-sans text-muted-foreground
+    dark:prose-invert
+    text-justify
+  "
+>
+  {DATA.summary}
+</Markdown>
+
+      <div className="mt-4 flex justify-center sm:justify-end">
+        <Link
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Unduh CV Bulin (PDF)"
+        >
+          <Button size="sm" variant="outline">
+            Unduh CV
+            <Notebook className="ml-2 h-4 w-4" />
+          </Button>
+        </Link>
+      </div>
+    </BlurFade>
+  </div>
+</section>
+
         <section id="work">
           <div className="flex min-h-0 max-w-2xl flex-col gap-y-3">
             <BlurFade delay={BLUR_FADE_DELAY * 5}>
@@ -150,8 +223,9 @@ export default function Page() {
                     Proyek
                   </h2>
                   <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Saya senang membangun {""}<span className="font-bold">proyek</span>. Saya telah membuat banyak proyek,
-                    berikut beberapa proyek yang telah saya buat dan masih dalam{""}<span className="font-bold">pengembangan</span>.
+                    Saya telah mengembangkan banyak proyek dengan berbagai
+                    teknologi, berikut beberapa proyek yang telah{" "}
+                    <span className="font-bold">dikembangkan</span>.
                   </p>
                 </div>
               </div>
