@@ -105,43 +105,43 @@ export default function Page() {
           </BlurFade>
         </section> */}
         {/* ABOUT / TENTANG */}
-<section id="about" className="w-full">
-  <div className="mx-auto w-full max-w-2xl px-4 sm:px-0">
-    <BlurFade delay={BLUR_FADE_DELAY * 3}>
-      <h2 className="text-lg sm:text-xl font-bold text-center sm:text-left">
-        Tentang Saya
-      </h2>
-    </BlurFade>
+        <section id="about" className="w-full">
+          <div className="mx-auto w-full max-w-2xl px-4 sm:px-0">
+            <BlurFade delay={BLUR_FADE_DELAY * 3}>
+              <h2 className="text-lg sm:text-xl font-bold text-center sm:text-left">
+                Tentang Saya
+              </h2>
+            </BlurFade>
 
-    <BlurFade delay={BLUR_FADE_DELAY * 4}>
-      <Markdown
-  className="
-    prose prose-sm md:prose-base
-    max-w-none leading-relaxed text-pretty
-    font-sans text-muted-foreground
-    dark:prose-invert
-    text-justify
-  "
->
-  {DATA.summary}
-</Markdown>
+            <BlurFade delay={BLUR_FADE_DELAY * 4}>
+              <Markdown
+                className="
+                  prose prose-sm md:prose-base
+                  max-w-none leading-relaxed text-pretty
+                  font-sans text-muted-foreground
+                  dark:prose-invert
+                  text-justify
+                "
+              >
+                {DATA.summary}
+              </Markdown>
 
-      <div className="mt-4 flex justify-center sm:justify-end">
-        <Link
-          href="/resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Unduh CV Bulin (PDF)"
-        >
-          <Button size="sm" variant="outline">
-            Unduh CV
-            <Notebook className="ml-2 h-4 w-4" />
-          </Button>
-        </Link>
-      </div>
-    </BlurFade>
-  </div>
-</section>
+              <div className="mt-4 flex justify-center sm:justify-end">
+                <Link
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Unduh CV Bulin (PDF)"
+                >
+                  <Button size="sm" variant="outline">
+                    Unduh CV
+                    <Notebook className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </BlurFade>
+          </div>
+        </section>
 
         <section id="work">
           <div className="flex min-h-0 max-w-2xl flex-col gap-y-3">

@@ -10,11 +10,11 @@ export const DATA = {
   initials: "MNA",
   url: "https://tnembull.github.io",
   location: "Bandar Lampung, Indonesia",
-  locationLink: "https://maps.app.goo.gl/Zbzok1mCik445h1C6",
+  locationLink: "https://maps.app.goo.gl/s6GhR9WhmBx7Sue67",
   description:
-    "Backend / Fullstack Developer berpengalaman membangun API terstruktur, integrasi sistem, dan solusi open‑source untuk pemerintahan & swasta.",
+    "Backend Developer berpengalaman membangun API terstruktur, integrasi sistem, dan solusi open‑source untuk pemerintahan & swasta.",
   summary:
-    "Saya adalah seorang Backend & Fullstack Developer dengan pengalaman dalam membangun sistem yang scalable, API yang terstruktur dan rapi, serta integrasi lintas platform untuk mendukung produk nyata di sektor pemerintahan maupun swasta. Terbiasa bekerja di ekosistem TypeScript/Node.js, Next.js, PostgreSQL, dan Docker, serta berpengalaman menggunakan Python untuk otomasi dan pengolahan data. Memiliki ketertarikan pada penulisan dokumentasi teknis, perancangan arsitektur perangkat lunak yang mudah di-maintain, dan pengembangan solusi berbasis open source.",
+    "Saya adalah seorang Backend Developer dengan pengalaman dalam membangun sistem yang scalable, API yang terstruktur dan rapi, serta integrasi lintas platform untuk mendukung produk nyata di sektor pemerintahan maupun swasta. Terbiasa bekerja di ekosistem TypeScript/Node.js, Next.js, PostgreSQL, dan Docker, serta berpengalaman menggunakan Python untuk otomasi dan pengolahan data. Memiliki ketertarikan pada penulisan dokumentasi teknis, perancangan arsitektur perangkat lunak yang mudah di-maintain, dan pengembangan solusi berbasis open source.",
 
   avatarUrl: "/me.png",
   skills: [
@@ -222,78 +222,78 @@ work: [
     },
   ],
    projects: [
-    {
-      title: "SIMRESES",
-      href: "https://ereses.dprdpalikab.com/",
-      dates: "Juni 2025 - Sekarang",
-      active: true,
-      description:
-        "Sistem Reses DPRD Kabupaten PALI untuk menyalurkan dan memonitor aspirasi masyarakat (E-Gov).",
-      technologies: ["Next.js", "TypeScript", "Prisma", "Express", "PostgreSQL"],
-      links: [{ type: "Website", href: "https://ereses.dprdpalikab.com/", icon: <Icons.globe className="size-3" /> }],
-      image: "/projects/simreses.webp",
-    },
-    {
-      title: "SIPAKGURU",
-      href: "https://sipakguru.disdikpali.com/",
-      dates: "Mei 2025 - Sekarang",
-      active: true,
-      description:
-        "Platform manajemen data pendidik & administrasi pendidikan untuk Dinas Pendidikan.",
-      technologies: ["Next.js", "TypeScript", "Prisma", "Express", "PostgreSQL"],
-      links: [{ type: "Website", href: "https://sipakguru.disdikpali.com/", icon: <Icons.globe className="size-3" /> }],
-      image: "/projects/sipakguru.webp",
-    },
-    {
-      title: "SMARTSCHOOL",
-      href: "https://smartschool.disdikpali.com/",
-      dates: "Mei 2025 - Sekarang",
-      active: true,
-      description:
-        "Learning Management System (LMS) dengan aplikasi Android untuk monitoring akademik.",
-      technologies: ["Next.js", "TypeScript", "Prisma", "Express", "PostgreSQL"],
-      links: [
-        { type: "Play Store", href: "https://play.google.com/store/apps/details?id=com.newustechnology.smartschool", icon: <Play className="size-3" /> },
-        { type: "Website", href: "https://smartschool.disdikpali.com/", icon: <Icons.globe className="size-3" /> },
-      ],
-      image: "/projects/smartschool.webp",
-    },
-    {
-      title: "PPDB",
-      href: "https://spmb.disdikpali.com/",
-      dates: "Mei 2025 - Sekarang",
-      active: true,
-      description:
-        "Portal pendaftaran peserta didik baru (PPDB) dengan verifikasi dokumen dan dasbor sekolah.",
-      technologies: ["Next.js", "TypeScript", "Prisma", "Express", "PostgreSQL"],
-      links: [{ type: "Website", href: "https://spmb.disdikpali.com/", icon: <Icons.globe className="size-3" /> }],
-      image: "/projects/ppdb.webp",
-    },
-    {
-      title: "SUPERAPPS RAMATRANS",
-      href: "https://ramatranz.co.id/",
-      dates: "Mei 2025 - Sekarang",
-      active: true,
-      description:
-        "Superapp pemesanan travel & rental mobil: pemesanan, pembayaran, dan pelacakan.",
-      technologies: ["Laravel 10", "React", "Next.js", "MySQL"],
-      links: [
-        { type: "Play Store", href: "https://play.google.com/store/apps/details?id=com.newustechnology.supperapps", icon: <Play className="size-3" /> },
-        { type: "Website", href: "https://ramatranz.co.id/", icon: <Icons.globe className="size-3" /> },
-      ],
-      image: "/projects/rama.webp",
-    },
-    {
-      title: "SIMPUSKES",
-      href: "https://simpuskes.com/",
-      dates: "November 2024 - Sekarang",
-      active: true,
-      description:
-        "Aplikasi manajemen klinik/puskesmas: pendaftaran, rekam medis sederhana, dan laporan.",
-      technologies: ["Next.js", "Express.js", "PostgreSQL", "Sequelize"],
-      links: [{ type: "Website", href: "https://simpuskes.com/", icon: <Icons.globe className="size-3" /> }],
-      image: "/projects/simpuskes.webp",
-    },
+    // {
+    //   title: "SIMRESES",
+    //   href: "https://ereses.dprdpalikab.com/",
+    //   dates: "Juni 2025 - Sekarang",
+    //   active: true,
+    //   description:
+    //     "Sistem Reses DPRD Kabupaten PALI untuk menyalurkan dan memonitor aspirasi masyarakat (E-Gov).",
+    //   technologies: ["Next.js", "TypeScript", "Prisma", "Express", "PostgreSQL"],
+    //   links: [{ type: "Website", href: "https://ereses.dprdpalikab.com/", icon: <Icons.globe className="size-3" /> }],
+    //   image: "/projects/simreses.webp",
+    // },
+    // {
+    //   title: "SIPAKGURU",
+    //   href: "https://sipakguru.disdikpali.com/",
+    //   dates: "Mei 2025 - Sekarang",
+    //   active: true,
+    //   description:
+    //     "Platform manajemen data pendidik & administrasi pendidikan untuk Dinas Pendidikan.",
+    //   technologies: ["Next.js", "TypeScript", "Prisma", "Express", "PostgreSQL"],
+    //   links: [{ type: "Website", href: "https://sipakguru.disdikpali.com/", icon: <Icons.globe className="size-3" /> }],
+    //   image: "/projects/sipakguru.webp",
+    // },
+    // {
+    //   title: "SMARTSCHOOL",
+    //   href: "https://smartschool.disdikpali.com/",
+    //   dates: "Mei 2025 - Sekarang",
+    //   active: true,
+    //   description:
+    //     "Learning Management System (LMS) dengan aplikasi Android untuk monitoring akademik.",
+    //   technologies: ["Next.js", "TypeScript", "Prisma", "Express", "PostgreSQL"],
+    //   links: [
+    //     { type: "Play Store", href: "https://play.google.com/store/apps/details?id=com.newustechnology.smartschool", icon: <Play className="size-3" /> },
+    //     { type: "Website", href: "https://smartschool.disdikpali.com/", icon: <Icons.globe className="size-3" /> },
+    //   ],
+    //   image: "/projects/smartschool.webp",
+    // },
+    // {
+    //   title: "PPDB",
+    //   href: "https://spmb.disdikpali.com/",
+    //   dates: "Mei 2025 - Sekarang",
+    //   active: true,
+    //   description:
+    //     "Portal pendaftaran peserta didik baru (PPDB) dengan verifikasi dokumen dan dasbor sekolah.",
+    //   technologies: ["Next.js", "TypeScript", "Prisma", "Express", "PostgreSQL"],
+    //   links: [{ type: "Website", href: "https://spmb.disdikpali.com/", icon: <Icons.globe className="size-3" /> }],
+    //   image: "/projects/ppdb.webp",
+    // },
+    // {
+    //   title: "SUPERAPPS RAMATRANS",
+    //   href: "https://ramatranz.co.id/",
+    //   dates: "Mei 2025 - Sekarang",
+    //   active: true,
+    //   description:
+    //     "Superapp pemesanan travel & rental mobil: pemesanan, pembayaran, dan pelacakan.",
+    //   technologies: ["Laravel 10", "React", "Next.js", "MySQL"],
+    //   links: [
+    //     { type: "Play Store", href: "https://play.google.com/store/apps/details?id=com.newustechnology.supperapps", icon: <Play className="size-3" /> },
+    //     { type: "Website", href: "https://ramatranz.co.id/", icon: <Icons.globe className="size-3" /> },
+    //   ],
+    //   image: "/projects/rama.webp",
+    // },
+    // {
+    //   title: "SIMPUSKES",
+    //   href: "https://simpuskes.com/",
+    //   dates: "November 2024 - Sekarang",
+    //   active: true,
+    //   description:
+    //     "Aplikasi manajemen klinik/puskesmas: pendaftaran, rekam medis sederhana, dan laporan.",
+    //   technologies: ["Next.js", "Express.js", "PostgreSQL", "Sequelize"],
+    //   links: [{ type: "Website", href: "https://simpuskes.com/", icon: <Icons.globe className="size-3" /> }],
+    //   image: "/projects/simpuskes.webp",
+    // },
     {
       title: "MJA RENTCAR",
       href: "https://mjarentcar.com/",

@@ -17,7 +17,7 @@ const fontSans = FontSans({
 const TITLE = `${DATA.name}`;
 const SITE_NAME = `${DATA.name} Portfolio`;
 const DESCRIPTION =
-  `Portofolio ${DATA.name} (Bulin) - Backend & Fullstack Developer di Bandar Lampung. Next.js, TypeScript, PostgreSQL untuk pengembangan aplikasi modern.`;
+  `Portofolio ${DATA.name} (Bulin) - Backend Developer di Bandar Lampung. ExpressJs, NodeJs, TypeScript, PostgreSQL untuk pengembangan aplikasi modern.`;
 const OG_IMAGE = `${DATA.url}/og.png`;
 
 export const metadata: Metadata = {
@@ -29,10 +29,28 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: [
     "Bulin",
+    "Tnembull",
+    "Tnembull Developer",
+    "Bulin Developer",
+    "Bulin Portfolio",
+    "Tnembull Portfolio",
+    "Bulin Dev",
     "Muhammad Nur Ashiddiqi",
+    "BackEnd Developer",
+    "FrontEnd Developer",
+    "FullStack Developer",
     "Backend Developer",
+    "Frontend Developer",
     "Fullstack Developer",
+    "Back-end Developer",
+    "Front-end Developer",
+    "Full-stack Developer",
     "Next.js",
+    "Express.js",
+    "Prisma",
+    "Tailwind CSS",
+    "Squelize",
+    "Django",
     "TypeScript",
     "Node.js",
     "PostgreSQL",
@@ -94,7 +112,7 @@ export default function RootLayout({
     alternateName: DATA.nickname,
     url: DATA.url,
     image: `${DATA.url}${DATA.avatarUrl}`,
-    jobTitle: "Fullstack Developer",
+    jobTitle: "Backend Developer",
     worksFor: {
       "@type": "Organization",
       name: "Newus Teknologi",
